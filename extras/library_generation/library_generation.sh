@@ -11,7 +11,7 @@ done
 
 if [ $OPTIND -eq 1 ]; then
     # PLATFORMS+=("opencr1")
-    PLATFORMS+=("teensy4")
+    # PLATFORMS+=("teensy4")
     # PLATFORMS+=("teensy32")
     # PLATFORMS+=("teensy35")
     # PLATFORMS+=("teensy36")
@@ -22,6 +22,7 @@ if [ $OPTIND -eq 1 ]; then
     # PLATFORMS+=("portenta-m7")
     # PLATFORMS+=("kakutef7-m7")
     # PLATFORMS+=("esp32")
+    PLATFORMS+=("teensy4-freertos")
 fi
 
 shift $((OPTIND-1))
@@ -172,6 +173,38 @@ if [[ " ${PLATFORMS[@]} " =~ " teensy4 " ]]; then
 
     mkdir -p /project/src/imxrt1062/fpv5-d16-hard
     cp -R firmware/build/libmicroros.a /project/src/imxrt1062/fpv5-d16-hard/libmicroros.a
+fi
+
+######## Build for Teensy 4 w/ Teensy FreeRTOS compiler (see: https://github.com/tsandmann/platform-teensy.git) ########
+if [[ " ${PLATFORMS[@]} " =~ " teensy4-freertos " ]]; then
+    rm -rf firmware/build
+
+    # HACK
+    COMMIT="8230779f89af4d9b163f3771effbef9d5474f865"
+    wget https://github.com/tsandmann/arm-cortexm-toolchain-linux/archive/${COMMIT}.tar.gz -P /uros_ws/
+    tar -xzf /uros_ws/${COMMIT}.tar.gz -C /uros_ws/
+    export TOOLCHAIN_PREFIX=/uros_ws/arm-cortexm-toolchain-linux-${COMMIT}/bin/arm-cortexm7f-eabi-
+    echo "========="
+    echo "========="
+    echo "========="
+    echo "========="
+    echo "========="
+    echo "TOOLCHAIN_PREFIX: ${TOOLCHAIN_PREFIX}"
+    echo "========="
+    echo "========="
+    echo "========="
+    echo "========="
+    echo "========="
+
+
+
+    ros2 run micro_ros_setup build_firmware.sh /project/extras/library_generation/teensy4_toolchain.cmake /project/extras/library_generation/colcon.meta
+
+    find firmware/build/include/ -name "*.c"  -delete
+    cp -R firmware/build/include/* /project/src/
+
+    mkdir -p /project/src/imxrt1062-freertos/fpv5-d16-hard
+    cp -R firmware/build/libmicroros.a /project/src/imxrt1062-freertos/fpv5-d16-hard/libmicroros.a
 fi
 
 ######## Build for Arduino Portenta M4 core ########
