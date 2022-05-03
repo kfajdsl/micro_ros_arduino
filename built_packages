@@ -15,6 +15,7 @@ https://github.com/micro-ROS/rmw-microxrcedds.git b0f9724a2c638cf35b4b1c6003a58b
 https://github.com/micro-ROS/rosidl_typesupport.git d569fcc82aca391470a43dd5fc388f9f3a4d477d
 https://github.com/micro-ROS/rosidl_typesupport_microxrcedds.git 51c7e2b36a4ddb8175c4662145c84a66c23be317
 https://github.com/ros-controls/control_msgs a555c37f1a3536bb452ea555c58fdd9344d87614
+https://github.com/ros-drivers/ackermann_msgs f61ddd8978bc1604b8beab958bb057ed344225d0
 https://github.com/ros2/ament_cmake_ros.git 7b6b599c3fc8023806db2a97b344e8610902adac
 https://github.com/ros2/common_interfaces.git 969a56b0b59f7f70b5c4561185ea34aaa2b74e1d
 https://github.com/ros2/example_interfaces.git ae3df08ac12cea293f53520c7c7dc67cb0cf5355

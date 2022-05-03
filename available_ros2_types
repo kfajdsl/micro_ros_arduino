@@ -1,3 +1,5 @@
+ackermann_msgs/AckermannDrive.msg
+ackermann_msgs/AckermannDriveStamped.msg
 action_msgs/CancelGoal.srv
 action_msgs/GoalInfo.msg
 action_msgs/GoalStatus.msg
