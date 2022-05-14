@@ -3,7 +3,7 @@ repositories:
     type: git
     url: https://github.com/ros-controls/control_msgs
     version: galactic-devel
-  ackermann_msgs:
+  voltron_vcu_interfaces:
     type: git
-    url: https://github.com/ros-drivers/ackermann_msgs
-    version: ros2
+    url: https://gitlab.com/KSU_EVT/autonomous-software/voltron_vcu_interfaces.git
+    version: master

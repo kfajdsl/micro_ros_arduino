@@ -1,5 +1,3 @@
-ackermann_msgs/AckermannDrive.msg
-ackermann_msgs/AckermannDriveStamped.msg
 action_msgs/CancelGoal.srv
 action_msgs/GoalInfo.msg
 action_msgs/GoalStatus.msg
@@ -239,3 +237,5 @@ visualization_msgs/InteractiveMarkerUpdate.msg
 visualization_msgs/Marker.msg
 visualization_msgs/MarkerArray.msg
 visualization_msgs/MenuEntry.msg
+voltron_vcu_interfaces/VcuControlInput.msg
+voltron_vcu_interfaces/VcuStatus.msg
