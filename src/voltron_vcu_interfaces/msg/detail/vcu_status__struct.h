@@ -25,7 +25,7 @@ extern "C"
 typedef struct voltron_vcu_interfaces__msg__VcuStatus
 {
   rosidl_runtime_c__String state;
-  float measured_rpm;
+  float measured_speed;
   float measured_accel_estimate;
   float commanded_accel_estimate;
 } voltron_vcu_interfaces__msg__VcuStatus;
